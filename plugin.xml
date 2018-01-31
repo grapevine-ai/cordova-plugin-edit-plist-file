@@ -31,17 +31,30 @@
     <platform name="ios">
         
         <!-- iOS9 whitelisting -->
-        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
-            <array>
-                <string>twitter</string>
-                <string>fb</string>
-                <string>whatsapp</string>
-                <string>itms-apps</string>
-                <string>youtube</string>
-                <string>soundcloud</string>
-                <string>fb-messenger</string>
-                <string>instagram</string>
-            </array>
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>graph.facebook.com</key>
+                    <dict>
+                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                    </dict>
+                    <key>feelinsonice-hrd.com</key>
+                    <dict>
+                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                    </dict>                   
+                </dict>
+            </dict>
         </config-file>
         
         
